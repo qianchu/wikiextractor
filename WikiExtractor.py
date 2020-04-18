@@ -554,6 +554,11 @@ class Extractor(object):
         self.revid = revid
         self.title = title
         self.text = ''.join(lines)
+        self.disambiguation = False
+        for line in self.text:
+            if filter_disambig_page_pattern.match(line):
+                self.disambiguation=True
+                break
         self.magicWords = MagicWords()
         self.frame = Frame()
         self.recursion_exceeded_1_errs = 0  # template recursion within expand()
@@ -661,6 +666,8 @@ class Extractor(object):
             # Extract categories but not sortkeys
             rgx_category = r'\[\[%s:([^|\]]+)(?:|[^\]]+)?\]\]' % options.category_surface
             categories = re.findall(rgx_category, text)
+            if self.disambiguation:
+                categories=['Disambiguation Pages']
         text = self.wiki2text(text)
         text = compact(self.clean(text))
         # from zwChan
@@ -2983,10 +2990,7 @@ def process_dump(input_file, template_file, out_file, file_size, file_compress,
     page_num = 0
     for page_data in pages_from(input):
         id, revid, title, ns, catSet, page = page_data
-        for line in page:
-            if filter_disambig_page_pattern.match(line):
-                catSet=set('Disambiguation Pages')
-                break
+
 
         if keepPage(ns, catSet, page):
             # slow down
