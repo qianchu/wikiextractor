@@ -556,7 +556,7 @@ class Extractor(object):
         self.title = title
         self.text = ''.join(lines)
         self.disambiguation = False
-        for line in self.text:
+        for line in lines:
             if filter_disambig_page_pattern.match(line):
                 self.disambiguation=True
                 logging.info('found disam page in extractor')
