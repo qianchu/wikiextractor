@@ -232,6 +232,7 @@ def keepPage(ns, catSet, page):
     if options.filter_disambig_pages:
         for line in page:
             if filter_disambig_page_pattern.match(line):
+                logging.info('keeppage found disambiguation page')
                 return False
     if len(options.filter_category_include) > 0 and len(options.filter_category_include & catSet)==0:
         logging.debug("***No include  " + str(catSet))
@@ -558,6 +559,7 @@ class Extractor(object):
         for line in self.text:
             if filter_disambig_page_pattern.match(line):
                 self.disambiguation=True
+                logging.info('found disam page in extractor')
                 break
         self.magicWords = MagicWords()
         self.frame = Frame()
@@ -667,6 +669,7 @@ class Extractor(object):
             rgx_category = r'\[\[%s:([^|\]]+)(?:|[^\]]+)?\]\]' % options.category_surface
             categories = re.findall(rgx_category, text)
             if self.disambiguation:
+                logging.info('disambiguation pages found in Extractor.extract')
                 categories=['Disambiguation Pages']
         text = self.wiki2text(text)
         text = compact(self.clean(text))
