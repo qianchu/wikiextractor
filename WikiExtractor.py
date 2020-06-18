@@ -559,7 +559,7 @@ class Extractor(object):
         for line in lines:
             if filter_disambig_page_pattern.match(line):
                 self.disambiguation=True
-                logging.info('found disam page in extractor')
+                logging.info('found disam page in extractor',self.title)
                 break
         self.magicWords = MagicWords()
         self.frame = Frame()
@@ -669,7 +669,7 @@ class Extractor(object):
             rgx_category = r'\[\[%s:([^|\]]+)(?:|[^\]]+)?\]\]' % options.category_surface
             categories = re.findall(rgx_category, text)
             if self.disambiguation:
-                logging.info('disambiguation pages found in Extractor.extract')
+                logging.info('disambiguation pages found in Extractor.extract',self.title)
                 categories=['Disambiguation Pages']
         text = self.wiki2text(text)
         text = compact(self.clean(text))
