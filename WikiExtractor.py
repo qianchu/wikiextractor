@@ -2863,7 +2863,7 @@ def pages_from(input):
             ns = m.group(3)
         elif tag.startswith('redirect'):
             redirect = True
-            redirected_title=re.search(r'"(.+)"',line).group(0)
+            redirected_title=re.search(r'"(.+)"',line).group(1)
             print ('REDIRECT:',title,'|||',redirected_title)
         elif tag == 'text':
             if m.lastindex == 3 and line[m.start(3)-2] == '/': # self closing
