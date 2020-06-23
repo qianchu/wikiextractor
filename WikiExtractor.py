@@ -1059,6 +1059,7 @@ class Extractor(object):
 
         redirected = options.redirects.get(title)
         if redirected:
+            print ('REDIRECTED:::',title,'|||', redirected)
             title = redirected
 
         # get the template
