@@ -2014,7 +2014,9 @@ def define_template(title, page):
 
     # check for redirects
     m = re.match('#REDIRECT.*?\[\[([^\]]*)]]', page[0], re.IGNORECASE)
+    print ('define template')
     if m:
+        print ('found redirect',title,m.group(1))
         options.redirects[title] = m.group(1)  # normalizeTitle(m.group(1))
         return
 
@@ -2933,7 +2935,7 @@ def process_dump(input_file, template_file, out_file, file_size, file_compress,
         if template_file:
             if os.path.exists(template_file):
                 logging.info("Loading template definitions from: %s", template_file)
-                # can't use with here:
+                # can't use with here:f
                 file = fileinput.FileInput(template_file,
                                            openhook=fileinput.hook_compressed)
                 load_templates(file)
