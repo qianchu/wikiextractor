@@ -561,6 +561,7 @@ class Extractor(object):
                 self.disambiguation=True
                 logging.info('found disam page in extractor '+str(self.title))
                 break
+            
         self.magicWords = MagicWords()
         self.frame = Frame()
         self.recursion_exceeded_1_errs = 0  # template recursion within expand()
@@ -2840,6 +2841,11 @@ def pages_from(input):
                     if mCat:
                         catSet.add(mCat.group(1))
             continue
+
+        if line.startswith('<redirect title'):
+            redirect = True
+            redirected_title=re.search(r'"(.+)"',line).group(0)
+            print ('REDIRECT:',title,'|||',redirected_title)
         m = tagRE.search(line)
         if not m:
             continue
@@ -2856,8 +2862,9 @@ def pages_from(input):
             title = m.group(3)
         elif tag == 'ns':
             ns = m.group(3)
-        elif tag == 'redirect':
+        elif tag.startswith('redirect'):
             redirect = True
+          
         elif tag == 'text':
             if m.lastindex == 3 and line[m.start(3)-2] == '/': # self closing
                 # <text xml:space="preserve" />
@@ -3140,7 +3147,7 @@ def reduce_process(opts, output_queue, spool_length,
 minFileSize = 200 * 1024
 
 def main():
-
+    import re
     parser = argparse.ArgumentParser(prog=os.path.basename(sys.argv[0]),
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      description=__doc__)
