@@ -2842,10 +2842,9 @@ def pages_from(input):
                         catSet.add(mCat.group(1))
             continue
 
-        if line.startswith('<redirect title'):
-            redirect = True
-            redirected_title=re.search(r'"(.+)"',line).group(0)
-            print ('REDIRECT:',title,'|||',redirected_title)
+        # if line.startswith('<redirect title'):
+        #     redirect = True
+            
         m = tagRE.search(line)
         if not m:
             continue
@@ -2864,7 +2863,8 @@ def pages_from(input):
             ns = m.group(3)
         elif tag.startswith('redirect'):
             redirect = True
-          
+            redirected_title=re.search(r'"(.+)"',line).group(0)
+            print ('REDIRECT:',title,'|||',redirected_title)
         elif tag == 'text':
             if m.lastindex == 3 and line[m.start(3)-2] == '/': # self closing
                 # <text xml:space="preserve" />
