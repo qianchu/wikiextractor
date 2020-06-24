@@ -2830,8 +2830,8 @@ def pages_from(input):
     inText = False
     redirect = False
     title = None
-    with open(args.input+'.redirect') as redirect_f:
-     for line in input:
+    # with open(args.input+'.redirect') as redirect_f:
+    for line in input:
         if not isinstance(line, text_type): line = line.decode('utf-8')
         if '<' not in line:  # faster than doing re.search()
             if inText:
