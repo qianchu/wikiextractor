@@ -2830,7 +2830,8 @@ def pages_from(input):
     inText = False
     redirect = False
     title = None
-    for line in input:
+    with open(args.input+'.redirect') as redirect_f:
+     for line in input:
         if not isinstance(line, text_type): line = line.decode('utf-8')
         if '<' not in line:  # faster than doing re.search()
             if inText:
@@ -2864,7 +2865,7 @@ def pages_from(input):
         elif tag.startswith('redirect'):
             redirect = True
             redirected_title=re.search(r'"(.+)"',line).group(1)
-            print ('REDIRECT:',title,'|||',redirected_title)
+            logging.info('REDIRECT: {0} ||| {1}'.format(title,redirected_title))
         elif tag == 'text':
             if m.lastindex == 3 and line[m.start(3)-2] == '/': # self closing
                 # <text xml:space="preserve" />
