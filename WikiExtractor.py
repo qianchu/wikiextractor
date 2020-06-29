@@ -225,7 +225,7 @@ g_page_articl_used_total=0
 def keepPage(ns, catSet, page):
     global g_page_articl_total,g_page_total,g_page_articl_used_total
     g_page_total += 1
-    if ns != '0':               # Aritcle
+    if ns != '0' and ns!='14':               # Aritcle
         return False
     # remove disambig pages if desired
     g_page_articl_total += 1
