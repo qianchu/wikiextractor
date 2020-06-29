@@ -3004,7 +3004,7 @@ def process_dump(input_file, template_file, out_file, file_size, file_compress,
     page_num = 0
     for page_data in pages_from(input):
         id, revid, title, ns, catSet, page = page_data
-        logging.info('process dump: title {0}'.format(title))
+        # logging.info('process dump: title {0}'.format(title))
 
 
         if keepPage(ns, catSet, page):
