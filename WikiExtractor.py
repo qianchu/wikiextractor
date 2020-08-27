@@ -228,7 +228,17 @@ filter_disambig_page_patterns={
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
-##
+## category surface Dictionary
+CAT_SURFACE_DICT = {
+    'en':'Category',
+    'zh':'Category',
+    'ru':'Категория',
+    'ar':'تصنيف',
+    'ja':'Category',
+    'es':'Categoría',
+    'tr':'Kategori',
+    'id':'Kategori'
+}
 g_page_total = 0
 g_page_articl_total=0
 g_page_articl_used_total=0
@@ -3246,7 +3256,7 @@ def main():
     options.filter_disambig_pages = args.filter_disambig_pages
     options.keep_tables = args.keep_tables
     options.extract_categories = args.extract_categories
-    options.category_surface = args.category_surface
+    options.category_surface = CAT_SURFACE_DICT[args.lg]
 
     try:
         power = 'kmg'.find(args.bytes[-1].lower()) + 1
