@@ -215,7 +215,18 @@ templateKeys = set(['10', '828'])
 
 ##
 # Regex for identifying disambig pages
-filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
+filter_disambig_page_pattern_en="{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__"
+filter_disambig_page_patterns={
+    'en':re.compile(filter_disambig_page_pattern_en),
+    'zh':re.compile("{{.*[dD]isambig.*}}|__DISAMBIG__"),
+    'es':re.compile(filter_disambig_page_pattern_en+"|{{.*[dD]esambiguación}}"),
+    'ru':re.compile(filter_disambig_page_pattern_en+"|{{.*неоднозначность.*}}"),
+    'ar':re.compile(filter_disambig_page_pattern_en+"|{{توضيح}}"),
+    'tr':re.compile(filter_disambig_page_pattern_en+"|{{[Aa]nlam ayrımı}}"),
+    'id':re.compile(filter_disambig_page_pattern_en+"|{{disambig}}"),
+    'ja':re.compile(filter_disambig_page_pattern_en+"|{{.*曖昧さ回避.*}}|{{[Aa]imai}}")
+}
+# filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
 ##
 g_page_total = 0
@@ -231,7 +242,7 @@ def keepPage(ns, catSet, page):
     g_page_articl_total += 1
     if options.filter_disambig_pages:
         for line in page:
-            if filter_disambig_page_pattern.match(line):
+            if filter_disambig_page_patterns[options.lg].match(line):
                 logging.info('keeppage found disambiguation page')
                 return False
     if len(options.filter_category_include) > 0 and len(options.filter_category_include & catSet)==0:
@@ -557,7 +568,7 @@ class Extractor(object):
         self.text = ''.join(lines)
         self.disambiguation = False
         for line in lines:
-            if filter_disambig_page_pattern.match(line):
+            if filter_disambig_page_patterns[options.lg].match(line):
                 self.disambiguation=True
                 logging.info('found disam page in extractor '+str(self.title))
                 break
@@ -3217,6 +3228,7 @@ def main():
     groupP.add_argument("--filter_category",
                         help="specify the file that listing the Categories you want to include or exclude. One line for"
                              " one category. starting with: 1) '#' comment, ignored; 2) '^' exclude; Note: excluding has higher priority than including")
+    groupP.add_argument("-lg",help='lg code')
     args = parser.parse_args()
 
     options.keepLinks = args.links
@@ -3226,6 +3238,7 @@ def main():
     options.write_json = args.json
     options.print_revision = args.revision
     options.min_text_length = args.min_text_length
+    options.lg=args.lg
     if args.html:
         options.keepLinks = True
 
