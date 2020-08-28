@@ -3238,7 +3238,7 @@ def main():
     groupP.add_argument("--filter_category",
                         help="specify the file that listing the Categories you want to include or exclude. One line for"
                              " one category. starting with: 1) '#' comment, ignored; 2) '^' exclude; Note: excluding has higher priority than including")
-    groupP.add_argument("-lg",help='lg code')
+    groupP.add_argument("--lg",help='lg code')
     args = parser.parse_args()
 
     options.keepLinks = args.links
