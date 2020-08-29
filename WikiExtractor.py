@@ -224,7 +224,8 @@ filter_disambig_page_patterns={
     'ar':re.compile(filter_disambig_page_pattern_en+"|{{توضيح}}"),
     'tr':re.compile(filter_disambig_page_pattern_en+"|{{[Aa]nlam ayrımı}}"),
     'id':re.compile(filter_disambig_page_pattern_en+"|{{disambig}}"),
-    'ja':re.compile(filter_disambig_page_pattern_en+"|{{.*曖昧さ回避.*}}|{{[Aa]imai}}")
+    'ja':re.compile(filter_disambig_page_pattern_en+"|{{.*曖昧さ回避.*}}|{{[Aa]imai}}"),
+    'fi':re.compile(filter_disambig_page_pattern_en+"|{{[Tt]äsmennyssivu}}")
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
@@ -237,7 +238,8 @@ CAT_SURFACE_DICT = {
     'ja':'Category',
     'es':'Categoría',
     'tr':'Kategori',
-    'id':'Kategori'
+    'id':'Kategori',
+    'fi':'Luokka'
 }
 g_page_total = 0
 g_page_articl_total=0
