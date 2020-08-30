@@ -226,10 +226,10 @@ filter_disambig_page_patterns={
     'id':re.compile(filter_disambig_page_pattern_en+"|{{disambig}}"),
     'ja':re.compile(filter_disambig_page_pattern_en+"|{{.*曖昧さ回避.*}}|{{[Aa]imai}}"),
     'fi':re.compile(filter_disambig_page_pattern_en+"|{{[Tt]äsmennyssivu}}"),
-    'de':re.compile(filter_disambig_page_pattern_en+'|{{[Bb}egriffsklärung}}'),
-    'it':re.compile(filter_disambig_page_pattern_en+'|{{[Dd]isambigua}}'),
-    'fr':re.compile(filter_disambig_page_pattern_en+'|{[Hh]omonymie}}'),
-    'pl':re.compile(filter_disambig_page_pattern_en+'|{{[Uu]jednoznacznienie}}')
+    'de':re.compile(filter_disambig_page_pattern_en+"|{{[Bb}egriffsklärung}}"),
+    'it':re.compile(filter_disambig_page_pattern_en+"|{{[Dd]isambigua}}"),
+    'fr':re.compile(filter_disambig_page_pattern_en+"|{[Hh]omonymie}}"),
+    'pl':re.compile(filter_disambig_page_pattern_en+"|{{[Uu]jednoznacznienie}}")
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
