@@ -229,7 +229,8 @@ filter_disambig_page_patterns={
     'de':re.compile(filter_disambig_page_pattern_en+"|{{[Bb]egriffsklärung}}"),
     'it':re.compile(filter_disambig_page_pattern_en+"|{{[Dd]isambigua}}"),
     'fr':re.compile(filter_disambig_page_pattern_en+"|{[Hh]omonymie}}"),
-    'pl':re.compile(filter_disambig_page_pattern_en+"|{{[Uu]jednoznacznienie}}")
+    'pl':re.compile(filter_disambig_page_pattern_en+"|{{[Uu]jednoznacznienie}}"),
+    'eu':re.compile(filter_disambig_page_pattern_en+'|{{[aA]rgipen}}')
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
@@ -247,7 +248,8 @@ CAT_SURFACE_DICT = {
     'de':'Kategorie',
     'it':'Categoria',
     'fr':'Catégorie',
-    'pl':'Kategoria'
+    'pl':'Kategoria',
+    'eu':'Kategoria'
 }
 g_page_total = 0
 g_page_articl_total=0
