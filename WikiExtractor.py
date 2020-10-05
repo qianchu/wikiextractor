@@ -230,7 +230,14 @@ filter_disambig_page_patterns={
     'it':re.compile(filter_disambig_page_pattern_en+"|{{[Dd]isambigua}}"),
     'fr':re.compile(filter_disambig_page_pattern_en+"|{[Hh]omonymie}}"),
     'pl':re.compile(filter_disambig_page_pattern_en+"|{{[Uu]jednoznacznienie}}"),
-    'eu':re.compile(filter_disambig_page_pattern_en+'|{{[aA]rgipen}}')
+    'eu':re.compile(filter_disambig_page_pattern_en+'|{{[aA]rgipen}}'),
+    'ka':re.compile(filter_disambig_page_pattern_en+'|{{მრავალმნიშვნელოვანი}}'),
+    'th':re.compile(filter_disambig_page_pattern_en+'|{{แก้กำกวม}}'),
+    'ko':re.compile(filter_disambig_page_pattern_en+'|{{동음이의}}'),
+    'ta':re.compile(filter_disambig_page_pattern_en+'|{{பக்கவழி நெறிப்படுத்தல்}}'),
+    'ms':re.compile(filter_disambig_page_pattern_en+'|{{nyahkekaburan}}'),
+
+    
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
@@ -249,7 +256,13 @@ CAT_SURFACE_DICT = {
     'it':'Categoria',
     'fr':'Catégorie',
     'pl':'Kategoria',
-    'eu':'Kategoria'
+    'eu':'Kategoria',
+    'ka':'კატეგორია',
+    'th':'หมวดหมู่',
+    'ko':'분류',
+    'ta':'பகுப்பு',
+    'ms':'Kategori'
+
 }
 g_page_total = 0
 g_page_articl_total=0
