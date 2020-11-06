@@ -236,8 +236,13 @@ filter_disambig_page_patterns={
     'ko':re.compile(filter_disambig_page_pattern_en+'|{{동음이의}}'),
     'ta':re.compile(filter_disambig_page_pattern_en+'|{{பக்கவழி நெறிப்படுத்தல்}}'),
     'ms':re.compile(filter_disambig_page_pattern_en+'|{{nyahkekaburan}}'),
-
-    
+    'my':re.compile(filter_disambig_page_pattern_en+'|{{သံတူကြောင်းကွဲ}}'),
+    'tl':re.compile(filter_disambig_page_pattern_en+'|{{paglilinaw}}'),
+    'te':re.compile(filter_disambig_page_pattern_en+'|{{అయోమయ నివృత్తి}}'),
+    'ml':re.compile(filter_disambig_page_pattern_en+'|{{[Dd]isambig}}'),
+    'kk':re.compile(filter_disambig_page_pattern_en+'|{{айрық}}'),
+    'ht':re.compile(filter_disambig_page_pattern_en+'|{{menm non}}'),
+    'sw':re.compile(filter_disambig_page_pattern_en+'|{{maana}}')
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
@@ -261,7 +266,14 @@ CAT_SURFACE_DICT = {
     'th':'หมวดหมู่',
     'ko':'분류',
     'ta':'பகுப்பு',
-    'ms':'Kategori'
+    'ms':'Kategori',
+    'my':'Category',
+    'tl':'Kategorya',
+    'te':'వర్గం',
+    'ml':'വർഗ്ഗം',
+    'kk':'Санат',
+    'ht':'Kategori',
+    'sw':'Jamii'
 
 }
 g_page_total = 0
