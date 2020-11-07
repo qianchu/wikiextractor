@@ -242,7 +242,9 @@ filter_disambig_page_patterns={
     'ml':re.compile(filter_disambig_page_pattern_en+'|{{[Dd]isambig}}'),
     'kk':re.compile(filter_disambig_page_pattern_en+'|{{айрық}}'),
     'ht':re.compile(filter_disambig_page_pattern_en+'|{{menm non}}'),
-    'sw':re.compile(filter_disambig_page_pattern_en+'|{{maana}}')
+    'sw':re.compile(filter_disambig_page_pattern_en+'|{{maana}}'),
+    'ur':re.compile(filter_disambig_page_pattern_en+'|{{ضد ابہام}}'),
+    'bn':re.compile(filter_disambig_page_pattern_en+'|{{দ্ব্যর্থতা নিরসন}}')
 }
 # filter_disambig_page_pattern = re.compile("{{.*[dD]isambig(uation)?(\|[^}]*)?}}|__DISAMBIG__")
 
@@ -273,7 +275,9 @@ CAT_SURFACE_DICT = {
     'ml':'വർഗ്ഗം',
     'kk':'Санат',
     'ht':'Kategori',
-    'sw':'Jamii'
+    'sw':'Jamii',
+    'ur':'زمرہ',
+    'bn':'বিষয়শ্রেণী'
 
 }
 g_page_total = 0
